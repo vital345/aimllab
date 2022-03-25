@@ -1,4 +1,7 @@
-from matplotlib.mathtext import Error
+from scipy import linalg
+import numpy as np
+import matplotlib.pyplot as plt
+
 def lowess(x, y, f, iterations) :
   n = len(x)
   w = 1-np.clip(np.abs((x[:, None] - x[None, :])), 0.0, 1.0)
