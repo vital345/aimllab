@@ -16,7 +16,7 @@ def lowess(x0, X, y, tau):
     return x0 @ beta
 
 def radial_kernel(x0, X, tau):
-    return np.exp(np.sum((X - x0) ** 2, axis=1) / ( 2 * tau * tau))
+    return np.exp(np.sum((X - x0) ** 2, axis=1) / (-2 * tau * tau))
 
 n = 300
 tau = 0.24
