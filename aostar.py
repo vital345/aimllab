@@ -46,7 +46,7 @@ def least_cost_group(and_node, or_node, marked={}):
     for node_pair in and_node:
         if node_pair[0] + node_pair[1] not in marked:
             cost = 0
-            cost += heuristic(node_pair[0]] + node_pair[1]) + 2
+            cost += heuristic(node_pair[0]) + heuristic(node_pair[1]) + 2
             node_wise_cost[node_pair[0] + node_pair[1]]  = cost
     for node in or_node:
         if node not in marked:
