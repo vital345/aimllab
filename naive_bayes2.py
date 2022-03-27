@@ -19,7 +19,7 @@ def classify(train:np.array, test:np.array):
     
     target = np.unique(train[:, -1])
     count = np.zeros((target.shape[0]), dtype=int)
-    prob = np.zeros((target.shape[0]), dtype=int)
+    prob = np.zeros((target.shape[0]), dtype=float)
     
     for row in train:
         if row[-1] == target[0]:
@@ -58,9 +58,9 @@ def classify(train:np.array, test:np.array):
             prob_no *= prob0[col]
         
         if prob_no > prob_yes:
-            predict = 'yes'
+            predict = target[0]
         else:
-            predict = 'no'
+            predict = target[1]
         
         print(t+1, "\t", predict, "\t", test[t, -1])
         
