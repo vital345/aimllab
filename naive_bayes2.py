@@ -41,11 +41,11 @@ def classify(train:np.array, test:np.array):
     for t in range(test.shape[0]):
         for k in range(test.shape[1]-1):
             count0 = 0
-            count1 = 1
+            count1 = 0
             for j in range(train.shape[0]):
-                if test[t, k] == train[j, k] and train[j, k] == target[0]:
+                if test[t, k] == train[j, k] and train[j, -1] == target[0]:
                     count0 += 1
-                elif test[t, k] == train[j, k] and train[j, k] == target[1]:
+                elif test[t, k] == train[j, k] and train[j, -1] == target[1]:
                     count1 += 1
             prob0[k] = count0 / count[0]
             prob1[k] = count1 / count[1]
