@@ -11,7 +11,7 @@ def heuristic(node):
         'I': 1,
         'J': 0             
     }
-    return H_dist[n]
+    return H_dist[node]
 
 Graph_node = {
     'A': [('B', 6), ('F', 3)],
