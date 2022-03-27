@@ -16,7 +16,7 @@ def entropy_of_list(xs:list):
 def info_gain(df:pd.DataFrame, split, target):
     df_split = df.groupby(split)
     n = len(df)
-    df_arg_ent = df_split.agg({target: [entropy_of_list, lambda x : x / n ]})[target]
+    df_arg_ent = df_split.agg({target: [entropy_of_list, lambda x : len(x) / n ]})[target]
     df_arg_ent.columns = ['entropy', 'prob_obs']
     new_entropy = sum( df_arg_ent['entropy'] * df_arg_ent['prob_obs'] )
     old_entropy = entropy_of_list(df['target'])
