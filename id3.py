@@ -52,11 +52,9 @@ pprint(tree)
 
 def test(tree, test_data):
     for tree_key in tree:
-        for tree_val in tree[tree_key]:
-            if test_data[tree_key] == tree_val and isinstance(tree[tree_key][tree_val], dict):
-                test(tree[tree_key][tree_val], test_data)
-            elif test[tree_key] == tree_value:
-                print('Classififcation:\t', tree[tree_key][tree_val])
-
-test(tree, df.iloc[2:, 3])
-    
+        for tree_value in tree[tree_key]:
+            if test_data[tree_key] == tree_value and isinstance(tree[tree_key][tree_value], dict):
+                test(tree[tree_key][tree_value], test_data)
+            elif test_data[tree_key] == tree_value:
+                print('Classification:\t', tree[tree_key][tree_value])
+test(tree, df.loc[2, :])    
