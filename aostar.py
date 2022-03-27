@@ -69,10 +69,10 @@ def aostar(n):
     if n in all_node:
         if 'AND' in all_node[n]:
             and_node = all_node[n]['AND']
-        if 'OR' in all_node[n]:
+        else:
             or_node = all_node[n]['OR']
             
-    if len(or_node) == 0 and len(or_node) == 0:
+    if len(or_node) == 0 and len(and_node) == 0:
         return
     
     solvable = False
@@ -116,7 +116,7 @@ def aostar(n):
 
 optimal_child_group = {}
 optimal_cost = aostar('A')
-pprint('Nodes which gives optimal cost are') 
+print('Nodes which gives optimal cost are') 
 print_path('A') 
 print('\nOptimal Cost is :: ', optimal_cost)
 print('H_dist', H_dist)
