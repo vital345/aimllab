@@ -19,11 +19,11 @@ def info_gain(df:pd.DataFrame, split, target):
     df_arg_ent = df_split.agg({target: [entropy_of_list, lambda x : len(x) / n ]})[target]
     df_arg_ent.columns = ['entropy', 'prob_obs']
     new_entropy = sum( df_arg_ent['entropy'] * df_arg_ent['prob_obs'] )
-    old_entropy = entropy_of_list(df['target'])
+    old_entropy = entropy_of_list(df[target])
     return old_entropy - new_entropy
 
 def id3(df:pd.DataFrame, target:str, attribute:list[str], default_class:str=None):
-    cnt = Counter(x for x in df['target'])
+    cnt = Counter(x for x in df[target])
     
     if len(cnt) == 1 :
         return next(iter(cnt))
